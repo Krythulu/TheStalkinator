@@ -1,24 +1,23 @@
--- Find peripherals
+-- Find the blocks around
 local detector = peripheral.find("playerDetector")
 
 
 
--- List of players to track
+-- List nearby dudes
 local targets = detector.getOnlinePlayers()
 local tracking = true
 
--- Create tables to store tracking status and notification status
+-- The tables of players stuff
 local trackingStatus = {}
 for i, name in ipairs(targets) do
     trackingStatus[name] = false
 end
 
+-- the writing on the monitor stuff
 while tracking do
-    -- Clear the monitor
     term.clear()
     term.setCursorPos(1, 1)
     
-    -- Write the header
     term.setTextColor(colors.yellow)
     term.write("===== TheStalkinator =====")
     term.setCursorPos(1, 2)
@@ -27,7 +26,6 @@ while tracking do
     local playersOnline = 0
     local currentLine = 3
     
-    -- Process each target
     for i, name in ipairs(targets) do
         local targetPos = detector.getPlayerPos(name)
         
@@ -61,7 +59,6 @@ while tracking do
     end
     
     
-    -- Write the footer
     term.setCursorPos(1, currentLine + 1)
     term.setTextColor(colors.yellow)
     term.write("=======================")
