@@ -15,7 +15,7 @@ if not chatbox then
 end
 
 -- List of players to track
-local targets = {"Mochalmao", "Pixlemaster9", "xflamethrower451", "TheMarkinator99", "JakkaTheRat", "ConnorTNTMan", "Hazeboxobi"}
+local targets = detector.getOnlinePlayers()
 local tracking = true
 
 -- Create tables to store tracking status and notification status
